@@ -18,8 +18,10 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.select :user_id, @user_for_select, id: :user_id %>
   </div>
+
+
 
   <div class="actions">
     <%= form.submit %>

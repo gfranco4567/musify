@@ -5,6 +5,7 @@ class PlaylistsController < ApplicationController
   # GET /playlists.json
   def index
     @playlists = Playlist.all
+    @user_name = User.pluck(:name)
   end
 
   # GET /playlists/1
@@ -15,6 +16,7 @@ class PlaylistsController < ApplicationController
   # GET /playlists/new
   def new
     @playlist = Playlist.new
+    @user_for_select = User.pluck(:name, :id)
   end
 
   # GET /playlists/1/edit
