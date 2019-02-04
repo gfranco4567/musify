@@ -21,7 +21,14 @@
 <h2>Songs</h2>
 <ul>
   <% @songs.each do |song|%>
-<li> <%= song.artist%> - <%= song.name %> -<%= link_to 'Delete', playlist_song_path(@playlist, song), method: :delete, data: { confirm: 'Are you sure?' } %>
+<li> <% song.artist%> - <%= song.name %> -<%= link_to 'Delete', playlist_song_path(@playlist, song), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if song.favorite? %>
+<p>*</p>
+<% else %>
+<%= link_to set_favorite_playlist_song_path(@playlist, song), method: :patch do %>
+<span class="badge badge-warning">Marcar Favorito</span>
+<% end%>
+<% end%>
 </li>
   <% end %>
 </ul>

@@ -19,6 +19,14 @@ def destroy
 redirect_to playlist_path(@song)
  end
 
+ def set_favorite
+   song = Song.find(params[:id])
+   song.favorite = true
+   song.save
+   redirect_to song.playlist, notice: 'canción favorita'
+
+ end
+
 private
 
 def song_params

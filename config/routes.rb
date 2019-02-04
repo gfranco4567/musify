@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   resources :playlists do
-      resources :songs, only: [:create, :destroy]
+      resources :songs, only: [:create, :destroy] do
+        member do
+          patch 'set_favorite', to: 'songs#set_favorite'
+        end
+      end
 end
   resources :users
 
