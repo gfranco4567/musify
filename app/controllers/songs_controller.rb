@@ -8,7 +8,7 @@ def create
 
   @song.save
 
-  redirect_to playlists_path
+  redirect_to @song.playlist, notice: 'Canción creada con éxito'
 
 end
 
